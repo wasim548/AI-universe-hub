@@ -1,5 +1,6 @@
 // data loaded
 const loadUniverse = async() =>{
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/ai/tools`;
     const res = await fetch(url);
     const data = await res.json();
@@ -33,7 +34,17 @@ const displayUniverse = universes => {
        universesContainer.appendChild(universeDiv);
       
     });
-    
+    toggleSpinner(false);
+}
+// spinner loader 
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if(isLoading){
+        loaderSection.classList.remove('d-none');
+    }
+    else{
+        loaderSection.classList.add('d-none')
+    }
 }
 
 loadUniverse();
