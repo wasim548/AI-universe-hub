@@ -9,6 +9,13 @@ const loadUniverse = async() =>{
 const displayUniverse = universes => {
     // data array
     console.log(universes)
+    const universesContainer = document.getElementById('universes-container');
+    universes.forEach(universe => {
+        // single data 
+
+       console.log(universe);
+      
+    });
     
 }
 
