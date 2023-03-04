@@ -86,6 +86,25 @@ const displayUniverseDetails = universeDetails => {
     cardImage.innerHTML = `<div class="card p-4">
        <img src="${universeDetails.image_link[0]
        }"></div>`;
+        
+       const cardTittle = document.getElementById('card1');
+       cardTittle.innerHTML =`<div><h5> ${universeDetails.tool_name} </h5>
+       
+       <p>${universeDetails.description}</p></div>`;
+       const cardBtn = document.getElementById("button1");
+       cardBtn.innerHTML = `<button>Basic:${ universeDetails.pricing[0].price  }</button>
+       <button>Pro:${ universeDetails.pricing[1].price }</button>
+       <button>Enterprise:${ universeDetails.pricing[2].price }</button>
+
+       `;
+       const card2 = document.getElementById("card2");
+       card2.innerHTML = `<div>
+       <h5>Hey ${universeDetails.tool_name } , how are you feeling today?</h5>
+       <p></p>
+       </div>`
+       
+
+
 
   
     
