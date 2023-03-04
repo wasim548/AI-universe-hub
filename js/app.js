@@ -5,6 +5,11 @@ const loadUniverse = async() =>{
     const data = await res.json();
      displayUniverse(data.data.tools);
 }
-
+// display universe
+const displayUniverse = universes => {
+    // data array
+    console.log(universes)
+    
+}
 
 loadUniverse();
