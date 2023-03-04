@@ -79,9 +79,13 @@ const loaduniverseDetails = async id =>{
 }
 
 const displayUniverseDetails = universeDetails => {
-//    console.log(universeDetails)
+    console.log(universeDetails)
     const modalTittle = document.getElementById("staticBackdropLabel");
     modalTittle.innerText = universeDetails.tool_name;
+    const cardImage = document.getElementById('img2');
+    cardImage.innerHTML = `<div class="card p-4">
+       <img src="${universeDetails.image_link[0]
+       }"></div>`;
 
   
     
