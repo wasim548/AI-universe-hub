@@ -1,20 +1,31 @@
 // data loaded
-const loadUniverse = async() =>{
+const loadUniverse = async(dataLimit) =>{
     toggleSpinner(true);
+    
     const url = `https://openapi.programming-hero.com/api/ai/tools`;
+    
     const res = await fetch(url);
     const data = await res.json();
-     displayUniverse(data.data.tools);
+     displayUniverse(data.data.tools,dataLimit);
+     
 }
 // display universe
-const displayUniverse = universes => {
+const displayUniverse = (universes,dataLimit) => {
     // data array
-    console.log(universes)
+    //console.log(universes)
     const universesContainer = document.getElementById('universes-container');
+    const showAll = document.getElementById('show-all');
+    if( dataLimit && universes.length > 6){
+        universes = universes.slice(0,6);
+        showAll.classList.remove('d-none');
+    }
+    else{
+        showAll.classList.add('d-none');
+    }
     universes.forEach(universe => {
         // single data 
 
-       console.log(universe);
+      // console.log(universe);
        const universeDiv = document.createElement('div');
     //    make div & put data
        universeDiv.classList.add('col');
@@ -28,7 +39,8 @@ const displayUniverse = universes => {
        <h5 class="card-title">${universe.name
        }</h5>
        <span class="card-text"><img src="icon/calendar-minus.svg"></span><span class = " me-5 pe-5"> ${universe.published_in
-       }</span><button type="button" class="btn btn-outline-danger ms-5 ps-5"><img src="icon/arrow-right.svg"></button>
+       }</span><button onclick = "loaduniverseDetails('${universe.id}')" type="button" class="btn-outline-danger ms-5 ps-5" data-bs-toggle="modal" data-bs-target="#universeModal"><img src="icon/arrow-right.svg">
+       </button>
        </div>
        </div>`;
        universesContainer.appendChild(universeDiv);
@@ -46,5 +58,36 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.add('d-none')
     }
 }
+
+const processSearch = (dataLimit) =>{
+    
+    
+    
+    loadUniverse(dataLimit);
+}
+// show all btn 
+document.getElementById('btn-show-all').addEventListener('click',function(){
+    processSearch();
+})
+// details 
+
+const loaduniverseDetails = async id =>{
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayUniverseDetails(data.data);
+}
+
+const displayUniverseDetails = universeDetails => {
+//    console.log(universeDetails)
+    const modalTittle = document.getElementById("staticBackdropLabel");
+    modalTittle.innerText = universeDetails.tool_name;
+
+  
+    
+}
+
+
+
 
 loadUniverse();

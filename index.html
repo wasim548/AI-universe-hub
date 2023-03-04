@@ -21,12 +21,65 @@
         </div>
         <span class="card-text"><i class="fa-light fa-calendar-minus"></i></span>
       </section>
+      <!-- modal -->
+
+      <section>
+        <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="universeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- card  -->
+
+        <div class="rowContainer row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img id="img2" src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- card  -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+      </section>
       <!-- loader section  -->
       <section id="loader" class="d-none">
         <div style="height:200px" class="d-flex justify-content-center text-align-center">
           <div class="spinner-border text-success" role="status">
-            <span class="visually-hidden">Loading...</span>
+            <span class="visually-hidden"></span>
           </div>
+        </div>
+      </section>
+      <!-- show all  -->
+      <section>
+        <div id="show-all" class="text-center d-none">
+          <div id="btn-show-all" class="btn btn-primary">Show All</div>
         </div>
       </section>
       
